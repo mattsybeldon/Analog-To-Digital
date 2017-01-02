@@ -1,0 +1,772 @@
+Analysis & Synthesis report for Analog_To_Digital
+Sun Jan 01 18:33:14 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated
+ 16. Parameter Settings for User Entity Instance: Video_Input:video_src
+ 17. Parameter Settings for User Entity Instance: VGA_Output:vga_out
+ 18. Parameter Settings for User Entity Instance: I2C_Master:I2C_unit
+ 19. Parameter Settings for User Entity Instance: I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config
+ 20. Parameter Settings for User Entity Instance: ram_16:ram|altsyncram:altsyncram_component
+ 21. altsyncram Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config"
+ 23. Port Connectivity Checks: "I2C_Master:I2C_unit"
+ 24. Port Connectivity Checks: "VGA_Output:vga_out"
+ 25. Port Connectivity Checks: "Video_Input:video_src"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Jan 01 18:33:14 2017       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; Analog_To_Digital                           ;
+; Top-level Entity Name           ; Analog_To_Digital                           ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 257                                         ;
+; Total pins                      ; 59                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 2,097,152                                   ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Analog_To_Digital  ; Analog_To_Digital  ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                       ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                   ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+; Video_Input.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Video_Input.v          ;         ;
+; VGA_Output.v                     ; yes             ; User Verilog HDL File        ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v           ;         ;
+; ram_16.v                         ; yes             ; User Wizard-Generated File   ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/ram_16.v               ;         ;
+; i2c_video_cfg.v                  ; yes             ; User Verilog HDL File        ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v        ;         ;
+; I2C_Master.v                     ; yes             ; User Verilog HDL File        ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/I2C_Master.v           ;         ;
+; Analog_To_Digital.v              ; yes             ; User Verilog HDL File        ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v    ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf          ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc   ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc             ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc          ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/a_rdenreg.inc           ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altrom.inc              ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc              ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc            ;         ;
+; db/altsyncram_8132.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/altsyncram_8132.tdf ;         ;
+; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/decode_dla.tdf      ;         ;
+; db/mux_ahb.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/mux_ahb.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 265          ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 374          ;
+;     -- 7 input functions                    ; 8            ;
+;     -- 6 input functions                    ; 124          ;
+;     -- 5 input functions                    ; 44           ;
+;     -- 4 input functions                    ; 16           ;
+;     -- <=3 input functions                  ; 182          ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 257          ;
+;                                             ;              ;
+; I/O pins                                    ; 59           ;
+; Total MLAB memory bits                      ; 0            ;
+; Total block memory bits                     ; 2097152      ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_50~input ;
+; Maximum fan-out                             ; 263          ;
+; Total fan-out                               ; 10402        ;
+; Average fan-out                             ; 10.28        ;
++---------------------------------------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                           ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                   ; Entity Name       ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; |Analog_To_Digital                        ; 374 (1)             ; 257 (1)                   ; 2097152           ; 0          ; 59   ; 0            ; |Analog_To_Digital                                                                                                    ; Analog_To_Digital ; work         ;
+;    |I2C_Master:I2C_unit|                  ; 119 (72)            ; 74 (47)                   ; 0                 ; 0          ; 0    ; 0            ; |Analog_To_Digital|I2C_Master:I2C_unit                                                                                ; I2C_Master        ; work         ;
+;       |I2C_Video_Cfg:I2C_config|          ; 47 (47)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |Analog_To_Digital|I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config                                                       ; I2C_Video_Cfg     ; work         ;
+;    |VGA_Output:vga_out|                   ; 174 (174)           ; 80 (80)                   ; 0                 ; 0          ; 0    ; 0            ; |Analog_To_Digital|VGA_Output:vga_out                                                                                 ; VGA_Output        ; work         ;
+;    |Video_Input:video_src|                ; 64 (64)             ; 96 (96)                   ; 0                 ; 0          ; 0    ; 0            ; |Analog_To_Digital|Video_Input:video_src                                                                              ; Video_Input       ; work         ;
+;    |ram_16:ram|                           ; 16 (0)              ; 6 (0)                     ; 2097152           ; 0          ; 0    ; 0            ; |Analog_To_Digital|ram_16:ram                                                                                         ; ram_16            ; work         ;
+;       |altsyncram:altsyncram_component|   ; 16 (0)              ; 6 (0)                     ; 2097152           ; 0          ; 0    ; 0            ; |Analog_To_Digital|ram_16:ram|altsyncram:altsyncram_component                                                         ; altsyncram        ; work         ;
+;          |altsyncram_8132:auto_generated| ; 16 (0)              ; 6 (6)                     ; 2097152           ; 0          ; 0    ; 0            ; |Analog_To_Digital|ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated                          ; altsyncram_8132   ; work         ;
+;             |decode_dla:decode2|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Analog_To_Digital|ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated|decode_dla:decode2       ; decode_dla        ; work         ;
+;             |decode_dla:rden_decode_b|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Analog_To_Digital|ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated|decode_dla:rden_decode_b ; decode_dla        ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                            ;
++--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
+; Name                                                                                 ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF  ;
++--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
+; ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 65536        ; 32           ; 65536        ; 32           ; 2097152 ; None ;
++--------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                                    ;
++-----------------------------------------------------------+---------------------------------------------------+------------------------+
+; Latch Name                                                ; Latch Enable Signal                               ; Free of Timing Hazards ;
++-----------------------------------------------------------+---------------------------------------------------+------------------------+
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[9]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[8]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[7]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[5]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[6]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[3]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[4]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[15] ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[14] ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[13] ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[12] ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[11] ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[10] ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[1]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[2]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[0]  ; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|Mux6 ; yes                    ;
+; Number of user-specified and inferred latches = 16        ;                                                   ;                        ;
++-----------------------------------------------------------+---------------------------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                         ;
++--------------------------------------------------------------------+-----------------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                                    ;
++--------------------------------------------------------------------+-----------------------------------------------------------------------+
+; I2C_Master:I2C_unit|ACK2                                           ; Stuck at GND due to stuck port data_in                                ;
+; I2C_Master:I2C_unit|ACK3                                           ; Stuck at GND due to stuck port data_in                                ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|i2c_data[16,17,19,23] ; Stuck at GND due to stuck port data_in                                ;
+; I2C_Master:I2C_unit|SD[16,17,19,23]                                ; Stuck at GND due to stuck port data_in                                ;
+; I2C_Master:I2C_unit|SD[20,21]                                      ; Merged with I2C_Master:I2C_unit|SD[18]                                ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|mstep[3]              ; Merged with I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|mstep[2]     ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|i2c_data[20,21]       ; Merged with I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|i2c_data[18] ;
+; Video_Input:video_src|timer2[1,2]                                  ; Lost fanout                                                           ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|mstep[2]              ; Stuck at GND due to stuck port data_in                                ;
+; clkcount[1..10]                                                    ; Lost fanout                                                           ;
+; Total Number of Removed Registers = 28                             ;                                                                       ;
++--------------------------------------------------------------------+-----------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                        ;
++-----------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------+
+; Register name                                             ; Reason for Removal        ; Registers Removed due to This Register                                                     ;
++-----------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------+
+; clkcount[10]                                              ; Lost Fanouts              ; clkcount[9], clkcount[8], clkcount[7], clkcount[6], clkcount[5], clkcount[4], clkcount[3], ;
+;                                                           ;                           ; clkcount[2], clkcount[1]                                                                   ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|i2c_data[23] ; Stuck at GND              ; I2C_Master:I2C_unit|SD[23]                                                                 ;
+;                                                           ; due to stuck port data_in ;                                                                                            ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|i2c_data[19] ; Stuck at GND              ; I2C_Master:I2C_unit|SD[19]                                                                 ;
+;                                                           ; due to stuck port data_in ;                                                                                            ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|i2c_data[17] ; Stuck at GND              ; I2C_Master:I2C_unit|SD[17]                                                                 ;
+;                                                           ; due to stuck port data_in ;                                                                                            ;
+; I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|i2c_data[16] ; Stuck at GND              ; I2C_Master:I2C_unit|SD[16]                                                                 ;
+;                                                           ; due to stuck port data_in ;                                                                                            ;
++-----------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 257   ;
+; Number of registers using Synchronous Clear  ; 120   ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 38    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 183   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; I2C_Master:I2C_unit|TRN_END             ; 6       ;
+; I2C_Master:I2C_unit|SCLK                ; 4       ;
+; I2C_Master:I2C_unit|SD_COUNTER[0]       ; 18      ;
+; I2C_Master:I2C_unit|SD_COUNTER[6]       ; 10      ;
+; I2C_Master:I2C_unit|SD_COUNTER[5]       ; 10      ;
+; I2C_Master:I2C_unit|SD_COUNTER[2]       ; 26      ;
+; I2C_Master:I2C_unit|SD_COUNTER[1]       ; 22      ;
+; I2C_Master:I2C_unit|SD_COUNTER[4]       ; 15      ;
+; I2C_Master:I2C_unit|SD_COUNTER[3]       ; 14      ;
+; I2C_Master:I2C_unit|SDO                 ; 5       ;
+; I2C_Master:I2C_unit|ACK_enable          ; 5       ;
+; Total number of inverted registers = 11 ;         ;
++-----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+; 3:1                ; 18 bits   ; 36 LEs        ; 0 LEs                ; 36 LEs                 ; Yes        ; |Analog_To_Digital|Video_Input:video_src|vid_address_low[1]              ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |Analog_To_Digital|VGA_Output:vga_out|contvidv[2]                        ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |Analog_To_Digital|VGA_Output:vga_out|ramaddressl_even[3]                ;
+; 3:1                ; 17 bits   ; 34 LEs        ; 0 LEs                ; 34 LEs                 ; Yes        ; |Analog_To_Digital|VGA_Output:vga_out|ramaddressl_odd[9]                 ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |Analog_To_Digital|VGA_Output:vga_out|address_mot[4]                     ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |Analog_To_Digital|I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|mstep[0] ;
+; 33:1               ; 8 bits    ; 176 LEs       ; 168 LEs              ; 8 LEs                  ; Yes        ; |Analog_To_Digital|VGA_Output:vga_out|video_mot[7]                       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |Analog_To_Digital|I2C_Master:I2C_unit|SD_COUNTER[1]                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------+
+; Source assignments for ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------+
+; Assignment                      ; Value              ; From ; To                                 ;
++---------------------------------+--------------------+------+------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                  ;
++---------------------------------+--------------------+------+------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Video_Input:video_src ;
++----------------+------------------+--------------------------------+
+; Parameter Name ; Value            ; Type                           ;
++----------------+------------------+--------------------------------+
+; address_0      ; 0000000000000000 ; Unsigned Binary                ;
++----------------+------------------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_Output:vga_out ;
++----------------+---------------------+--------------------------+
+; Parameter Name ; Value               ; Type                     ;
++----------------+---------------------+--------------------------+
+; address_low    ; 0000000000000000000 ; Unsigned Binary          ;
++----------------+---------------------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_Master:I2C_unit ;
++----------------+----------+--------------------------------------+
+; Parameter Name ; Value    ; Type                                 ;
++----------------+----------+--------------------------------------+
+; clk_freq       ; 27000000 ; Signed Integer                       ;
+; i2c_freq       ; 40000    ; Signed Integer                       ;
++----------------+----------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; LUT_size       ; 32    ; Signed Integer                                                   ;
+; set_video      ; 10    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ram_16:ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------+
+; Parameter Name                     ; Value                ; Type                        ;
++------------------------------------+----------------------+-----------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                     ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                     ;
+; WIDTH_A                            ; 32                   ; Signed Integer              ;
+; WIDTHAD_A                          ; 16                   ; Signed Integer              ;
+; NUMWORDS_A                         ; 65536                ; Signed Integer              ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                     ;
+; WIDTH_B                            ; 32                   ; Signed Integer              ;
+; WIDTHAD_B                          ; 16                   ; Signed Integer              ;
+; NUMWORDS_B                         ; 65536                ; Signed Integer              ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                     ;
+; RDCONTROL_REG_B                    ; CLOCK0               ; Untyped                     ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                     ;
+; OUTDATA_REG_B                      ; CLOCK0               ; Untyped                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                     ;
+; WIDTH_BYTEENA_A                    ; 4                    ; Signed Integer              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                     ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                     ;
+; INIT_FILE                          ; UNUSED               ; Untyped                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS               ; Untyped                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                     ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                     ;
+; CBXI_PARAMETER                     ; altsyncram_8132      ; Untyped                     ;
++------------------------------------+----------------------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                       ;
++-------------------------------------------+--------------------------------------------+
+; Name                                      ; Value                                      ;
++-------------------------------------------+--------------------------------------------+
+; Number of entity instances                ; 1                                          ;
+; Entity Instance                           ; ram_16:ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                  ;
+;     -- WIDTH_A                            ; 32                                         ;
+;     -- NUMWORDS_A                         ; 65536                                      ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                               ;
+;     -- WIDTH_B                            ; 32                                         ;
+;     -- NUMWORDS_B                         ; 65536                                      ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                     ;
+;     -- OUTDATA_REG_B                      ; CLOCK0                                     ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                       ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ;
++-------------------------------------------+--------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config"                                        ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; mstep ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "I2C_Master:I2C_unit"                                                                      ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; TRN_END    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ACK        ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ACK_enable ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA_Output:vga_out"                                                                      ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; data_motl  ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; data_moth  ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; read_lowl  ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; read_highl ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; read_lowh  ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; read_highh ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Video_Input:video_src"                                                               ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; frame ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 257                         ;
+;     CLR               ; 13                          ;
+;     CLR SCLR          ; 16                          ;
+;     ENA               ; 95                          ;
+;     ENA CLR           ; 9                           ;
+;     ENA SCLR          ; 63                          ;
+;     ENA SLD           ; 16                          ;
+;     SCLR              ; 41                          ;
+;     plain             ; 4                           ;
+; arriav_io_obuf        ; 7                           ;
+; arriav_lcell_comb     ; 374                         ;
+;     arith             ; 126                         ;
+;         1 data inputs ; 126                         ;
+;     extend            ; 8                           ;
+;         7 data inputs ; 8                           ;
+;     normal            ; 240                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 38                          ;
+;         4 data inputs ; 16                          ;
+;         5 data inputs ; 44                          ;
+;         6 data inputs ; 124                         ;
+; boundary_port         ; 59                          ;
+; stratixv_ram_block    ; 256                         ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.30                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Sun Jan 01 18:32:56 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Analog_To_Digital -c Analog_To_Digital
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file video_input.v
+    Info (12023): Found entity 1: Video_Input File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Video_Input.v Line: 1
+Warning (10238): Verilog Module Declaration warning at VGA_Output.v(22): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "VGA_Output" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file vga_output.v
+    Info (12023): Found entity 1: VGA_Output File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram_16.v
+    Info (12023): Found entity 1: ram_16 File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/ram_16.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file i2c_video_cfg.v
+    Info (12023): Found entity 1: I2C_Video_Cfg File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file i2c_master.v
+    Info (12023): Found entity 1: I2C_Master File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/I2C_Master.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file analog_to_digital.v
+    Info (12023): Found entity 1: Analog_To_Digital File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 13
+Info (12127): Elaborating entity "Analog_To_Digital" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at Analog_To_Digital.v(203): truncated value with size 32 to match size of target (11) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 203
+Info (12128): Elaborating entity "Video_Input" for hierarchy "Video_Input:video_src" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 126
+Warning (10230): Verilog HDL assignment warning at Video_Input.v(73): truncated value with size 32 to match size of target (18) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Video_Input.v Line: 73
+Warning (10230): Verilog HDL assignment warning at Video_Input.v(81): truncated value with size 32 to match size of target (3) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Video_Input.v Line: 81
+Warning (10230): Verilog HDL assignment warning at Video_Input.v(94): truncated value with size 32 to match size of target (11) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Video_Input.v Line: 94
+Warning (10230): Verilog HDL assignment warning at Video_Input.v(114): truncated value with size 32 to match size of target (18) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Video_Input.v Line: 114
+Info (12128): Elaborating entity "VGA_Output" for hierarchy "VGA_Output:vga_out" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 149
+Warning (10230): Verilog HDL assignment warning at VGA_Output.v(87): truncated value with size 32 to match size of target (11) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 87
+Warning (10230): Verilog HDL assignment warning at VGA_Output.v(106): truncated value with size 32 to match size of target (11) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 106
+Warning (10230): Verilog HDL assignment warning at VGA_Output.v(117): truncated value with size 19 to match size of target (17) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 117
+Warning (10230): Verilog HDL assignment warning at VGA_Output.v(124): truncated value with size 32 to match size of target (17) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 124
+Warning (10230): Verilog HDL assignment warning at VGA_Output.v(136): truncated value with size 19 to match size of target (17) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 136
+Warning (10230): Verilog HDL assignment warning at VGA_Output.v(144): truncated value with size 32 to match size of target (17) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/VGA_Output.v Line: 144
+Info (12128): Elaborating entity "I2C_Master" for hierarchy "I2C_Master:I2C_unit" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 165
+Warning (10230): Verilog HDL assignment warning at I2C_Master.v(48): truncated value with size 32 to match size of target (1) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/I2C_Master.v Line: 48
+Warning (10230): Verilog HDL assignment warning at I2C_Master.v(74): truncated value with size 32 to match size of target (16) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/I2C_Master.v Line: 74
+Warning (10230): Verilog HDL assignment warning at I2C_Master.v(90): truncated value with size 32 to match size of target (7) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/I2C_Master.v Line: 90
+Info (12128): Elaborating entity "I2C_Video_Cfg" for hierarchy "I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/I2C_Master.v Line: 46
+Warning (10230): Verilog HDL assignment warning at i2c_video_cfg.v(86): truncated value with size 32 to match size of target (6) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 86
+Warning (10270): Verilog HDL Case Statement warning at i2c_video_cfg.v(102): incomplete case statement has no default case item File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Warning (10240): Verilog HDL Always Construct warning at i2c_video_cfg.v(102): inferring latch(es) for variable "LUT_data", which holds its previous value in one or more paths through the always construct File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[0]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[1]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[2]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[3]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[4]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[5]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[6]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[7]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[8]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[9]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[10]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[11]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[12]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[13]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[14]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (10041): Inferred latch for "LUT_data[15]" at i2c_video_cfg.v(102) File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+Info (12128): Elaborating entity "ram_16" for hierarchy "ram_16:ram" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 178
+Info (12128): Elaborating entity "altsyncram" for hierarchy "ram_16:ram|altsyncram:altsyncram_component" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/ram_16.v Line: 95
+Info (12130): Elaborated megafunction instantiation "ram_16:ram|altsyncram:altsyncram_component" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/ram_16.v Line: 95
+Info (12133): Instantiated megafunction "ram_16:ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/ram_16.v Line: 95
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK0"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "BYPASS"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "numwords_b" = "65536"
+    Info (12134): Parameter "operation_mode" = "DUAL_PORT"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_b" = "CLOCK0"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK0"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "widthad_b" = "16"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "32"
+    Info (12134): Parameter "width_byteena_a" = "4"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8132.tdf
+    Info (12023): Found entity 1: altsyncram_8132 File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/altsyncram_8132.tdf Line: 32
+Info (12128): Elaborating entity "altsyncram_8132" for hierarchy "ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
+    Info (12023): Found entity 1: decode_dla File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/decode_dla.tdf Line: 23
+Info (12128): Elaborating entity "decode_dla" for hierarchy "ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated|decode_dla:decode2" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/altsyncram_8132.tdf Line: 46
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ahb.tdf
+    Info (12023): Found entity 1: mux_ahb File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/mux_ahb.tdf Line: 23
+Info (12128): Elaborating entity "mux_ahb" for hierarchy "ram_16:ram|altsyncram:altsyncram_component|altsyncram_8132:auto_generated|mux_ahb:mux3" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/db/altsyncram_8132.tdf Line: 49
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "clk_vid" and its non-tri-state driver. File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 60
+    Warning (13035): Inserted always-enabled tri-state buffer between "vsync" and its non-tri-state driver. File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 57
+    Warning (13035): Inserted always-enabled tri-state buffer between "hsync" and its non-tri-state driver. File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 58
+    Warning (13035): Inserted always-enabled tri-state buffer between "vid_blank" and its non-tri-state driver. File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 59
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "vid_hs" has no driver File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 55
+    Warning (13040): bidirectional pin "vid_vs" has no driver File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 56
+Info (13060): One or more bidirectional pins are fed by always enabled tri-state buffers
+    Info (13061): Fan-out of permanently enabled tri-state buffer feeding bidirectional pin "clk_vid" is moved to its source File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 60
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[9] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[8] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[7] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[5] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[6] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[3] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[4] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[3] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[15] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[1] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[14] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[13] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[12] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[11] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[10] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[1] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[2] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[3] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13012): Latch I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_data[0] has unsafe behavior File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 102
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal I2C_Master:I2C_unit|I2C_Video_Cfg:I2C_config|LUT_index[4] File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/i2c_video_cfg.v Line: 56
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "vsync~synth" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 57
+    Warning (13010): Node "hsync~synth" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 58
+    Warning (13010): Node "vid_blank~synth" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 59
+    Warning (13010): Node "clk_vid~synth" File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 60
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/output_files/Analog_To_Digital.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 794 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21060): Implemented 7 bidirectional pins
+    Info (21061): Implemented 479 logic cells
+    Info (21064): Implemented 256 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
+    Info: Peak virtual memory: 730 megabytes
+    Info: Processing ended: Sun Jan 01 18:33:14 2017
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:39
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/output_files/Analog_To_Digital.map.smsg.
+
+

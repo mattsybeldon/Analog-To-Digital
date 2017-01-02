@@ -1,0 +1,118 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2016  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Intel and sold by Intel or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+# Date created = 17:57:26  January 01, 2017
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		Analog_To_Digital_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY Analog_To_Digital
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:57:26  JANUARY 01, 2017"
+set_global_assignment -name LAST_QUARTUS_VERSION "16.1.0 Lite Edition"
+set_global_assignment -name VERILOG_FILE Video_Input.v
+set_global_assignment -name VERILOG_FILE VGA_Output.v
+set_global_assignment -name VERILOG_FILE ram_16.v
+set_global_assignment -name VERILOG_FILE i2c_video_cfg.v
+set_global_assignment -name VERILOG_FILE I2C_Master.v
+set_global_assignment -name VERILOG_FILE Analog_To_Digital.v
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_H15 -to clk_27
+set_location_assignment PIN_AA18 -to gpio[15]
+set_location_assignment PIN_AF16 -to gpio[14]
+set_location_assignment PIN_AE16 -to gpio[13]
+set_location_assignment PIN_AG16 -to gpio[12]
+set_location_assignment PIN_AH17 -to gpio[11]
+set_location_assignment PIN_AH18 -to gpio[10]
+set_location_assignment PIN_AJ16 -to gpio[9]
+set_location_assignment PIN_AJ17 -to gpio[8]
+set_location_assignment PIN_AJ19 -to gpio[7]
+set_location_assignment PIN_AK19 -to gpio[6]
+set_location_assignment PIN_AK18 -to gpio[5]
+set_location_assignment PIN_AK16 -to gpio[4]
+set_location_assignment PIN_Y18 -to gpio[3]
+set_location_assignment PIN_AD17 -to gpio[2]
+set_location_assignment PIN_Y17 -to gpio[1]
+set_location_assignment PIN_AC18 -to gpio[0]
+set_location_assignment PIN_D11 -to vsync
+set_location_assignment PIN_W20 -to led[7]
+set_location_assignment PIN_Y19 -to led[6]
+set_location_assignment PIN_W19 -to led[5]
+set_location_assignment PIN_W17 -to led[4]
+set_location_assignment PIN_V18 -to led[3]
+set_location_assignment PIN_V17 -to led[2]
+set_location_assignment PIN_W16 -to led[1]
+set_location_assignment PIN_V16 -to led[0]
+set_location_assignment PIN_AC9 -to swt[7]
+set_location_assignment PIN_AE11 -to swt[6]
+set_location_assignment PIN_AD12 -to swt[5]
+set_location_assignment PIN_AD11 -to swt[4]
+set_location_assignment PIN_AF10 -to swt[3]
+set_location_assignment PIN_AF9 -to swt[2]
+set_location_assignment PIN_AC12 -to swt[1]
+set_location_assignment PIN_AB12 -to swt[0]
+set_location_assignment PIN_F10 -to vid_blank
+set_location_assignment PIN_A5 -to vid_hs
+set_location_assignment PIN_A3 -to vid_vs
+set_location_assignment PIN_B3 -to video_in[7]
+set_location_assignment PIN_C2 -to video_in[6]
+set_location_assignment PIN_E1 -to video_in[5]
+set_location_assignment PIN_D1 -to video_in[4]
+set_location_assignment PIN_B2 -to video_in[3]
+set_location_assignment PIN_E2 -to video_in[2]
+set_location_assignment PIN_B1 -to video_in[1]
+set_location_assignment PIN_D2 -to video_in[0]
+set_location_assignment PIN_J14 -to video_rgb[7]
+set_location_assignment PIN_G15 -to video_rgb[6]
+set_location_assignment PIN_E11 -to video_rgb[5]
+set_location_assignment PIN_F11 -to video_rgb[4]
+set_location_assignment PIN_G12 -to video_rgb[3]
+set_location_assignment PIN_F13 -to video_rgb[2]
+set_location_assignment PIN_E12 -to video_rgb[1]
+set_location_assignment PIN_D12 -to video_rgb[0]
+set_location_assignment PIN_B11 -to hsync
+set_location_assignment PIN_AF14 -to clk_50
+set_location_assignment PIN_F6 -to clk_en
+set_location_assignment PIN_J12 -to I2C_SCLK
+set_location_assignment PIN_K12 -to I2C_SDATA
+set_location_assignment PIN_A11 -to clk_vid
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

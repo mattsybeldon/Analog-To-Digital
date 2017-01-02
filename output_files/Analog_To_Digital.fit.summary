@@ -1,0 +1,20 @@
+Fitter Status : Successful - Sun Jan 01 18:37:51 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : Analog_To_Digital
+Top-level Entity Name : Analog_To_Digital
+Family : Cyclone V
+Device : 5CSEMA5F31C6
+Timing Models : Final
+Logic utilization (in ALMs) : 262 / 32,070 ( < 1 % )
+Total registers : 291
+Total pins : 59 / 457 ( 13 % )
+Total virtual pins : 0
+Total block memory bits : 2,097,152 / 4,065,280 ( 52 % )
+Total RAM Blocks : 256 / 397 ( 64 % )
+Total DSP Blocks : 0 / 87 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )

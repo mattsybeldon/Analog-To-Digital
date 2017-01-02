@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at Analog_To_Digital.v(193): always construct contains both blocking and non-blocking assignments File: C:/Users/Matt Sybeldon/Documents/FPGA/Analog_To_Digital/Analog_To_Digital.v Line: 193

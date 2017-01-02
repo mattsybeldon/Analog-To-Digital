@@ -1,0 +1,245 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "video_rgb[0]",
+					"strict" : false
+				},
+				{
+					"name" : "video_rgb[1]",
+					"strict" : false
+				},
+				{
+					"name" : "video_rgb[2]",
+					"strict" : false
+				},
+				{
+					"name" : "video_rgb[3]",
+					"strict" : false
+				},
+				{
+					"name" : "video_rgb[4]",
+					"strict" : false
+				},
+				{
+					"name" : "video_rgb[5]",
+					"strict" : false
+				},
+				{
+					"name" : "video_rgb[6]",
+					"strict" : false
+				},
+				{
+					"name" : "video_rgb[7]",
+					"strict" : false
+				},
+				{
+					"name" : "I2C_SCLK",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[0]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[1]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[2]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[3]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[4]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[5]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[6]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[7]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[8]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[9]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[10]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[11]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[12]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[13]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[14]",
+					"strict" : false
+				},
+				{
+					"name" : "gpio[15]",
+					"strict" : false
+				},
+				{
+					"name" : "led[0]",
+					"strict" : false
+				},
+				{
+					"name" : "led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "led[2]",
+					"strict" : false
+				},
+				{
+					"name" : "led[3]",
+					"strict" : false
+				},
+				{
+					"name" : "led[4]",
+					"strict" : false
+				},
+				{
+					"name" : "led[5]",
+					"strict" : false
+				},
+				{
+					"name" : "led[6]",
+					"strict" : false
+				},
+				{
+					"name" : "led[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_en",
+					"strict" : false
+				},
+				{
+					"name" : "I2C_SDATA",
+					"strict" : false
+				},
+				{
+					"name" : "vsync",
+					"strict" : false
+				},
+				{
+					"name" : "hsync",
+					"strict" : false
+				},
+				{
+					"name" : "vid_blank",
+					"strict" : false
+				},
+				{
+					"name" : "vid_hs",
+					"strict" : false
+				},
+				{
+					"name" : "vid_vs",
+					"strict" : false
+				},
+				{
+					"name" : "clk_vid",
+					"strict" : false
+				},
+				{
+					"name" : "clk_27",
+					"strict" : false
+				},
+				{
+					"name" : "swt[0]",
+					"strict" : false
+				},
+				{
+					"name" : "swt[1]",
+					"strict" : false
+				},
+				{
+					"name" : "swt[2]",
+					"strict" : false
+				},
+				{
+					"name" : "swt[3]",
+					"strict" : false
+				},
+				{
+					"name" : "swt[4]",
+					"strict" : false
+				},
+				{
+					"name" : "swt[5]",
+					"strict" : false
+				},
+				{
+					"name" : "swt[6]",
+					"strict" : false
+				},
+				{
+					"name" : "swt[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "video_in[7]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
